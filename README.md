@@ -441,35 +441,3 @@ start worrying about asynchronous notifications from the server "crossing in fro
 the expected response to a command.  But you can probably follow the basic pattern in
 the scripts that I have provided to create other similar scripts that test the ability of
 your server process other series of commands issued in rapid succession.
-
-## Debugging Multi-threaded Code with `gdb`
-
-The `gdb` debugger has features for debugging multi-threaded code.
-In particular, it is aware of the presence of multiple threads and it provides
-commands for you to switch the focus of debugging from one thread to another.
-Use the `info threads` command to get a list of the existing threads.
-Use the command `thread nnn` (replace `nnn` by the thread number) to switch
-the focus of debugging to that thread.  Once you have done, this, the `gdb`
-commands such as `bt` that examine the stack will be executed with respect
-to the selected thread.  Threads can be stopped and started independently
-using `gdb`, as well.
-
-## Submission Instructions
-
-Make sure your hw5 directory looks similarly to the way it did
-initially and that your homework compiles (be sure to try compiling
-both with and without "debug").
-Note that you should omit any source files for modules that you did not
-complete, and that you might have some source and header files in addition
-to those shown.  You are also, of course, encouraged to create Criterion
-tests for your code.  Note that Criterion tests can themselves be multi-threaded;
-a single test case can create multiple threads to operate concurrently on
-the module being tested.  Of course, some effort is required to design and
-implement such tests.
-
-It would definitely be a good idea to use `valgrind` to check your program
-for memory and file descriptor leaks.  Keeping track of allocated objects
-and making sure to free them is potentially one of the more challenging aspects
-of this assignment.
-
-To submit, run `git submit hw5`.
